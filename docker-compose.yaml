@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  api:
+    image: muhammadrizal42/api-bc:3.0
+    ports:
+      - "9000:9000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=9000
+      - JWT_EXPIRETIME=36000
+      - CC_SRC_PATH=../artifacts
+      - EVENT_WAIT_TIME=30000
+    volumes:
+      - /home/ubuntu/blockchain-kpu/api/kpu-wallet:/usr/src/app/kpu-wallet
+      - ./config:/usr/src/app/config

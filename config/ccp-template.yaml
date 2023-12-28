@@ -1,0 +1,78 @@
+{
+    "name": "Kpu-Network",
+    "version": "1.1",
+    "client": {
+      "organization": "Kpu",
+      "connection": {
+          "timeout": {
+              "peer": {
+                "endorser": "300"
+              },
+              "orderer": "300"
+          }
+      }
+    },
+    "channels": {
+      "${CHANNEL_NAME}": ${ISI}
+    },
+    "organizations": {
+      "Kpu": {
+        "mspid": "KpuMSP",
+        "peers": [
+            "peer1.kpu.zillabc.io"
+        ]
+      }
+    },
+    "orderers": {
+      "orderer1.zillabc.io": {
+        "url": "grpcs://${HOSTO}:7050",
+        "grpcOptions": {
+          "ssl-target-name-override": "orderer1.zillabc.io"
+        },
+        "tlsCACerts": {
+            "pem": "${OPEM}"
+        }
+      }
+    },
+    "peers": {
+      "peer1.kpu.zillabc.io": {
+        "url": "grpcs://${HOSTP1}:7051",
+        "grpcOptions": {
+          "ssl-target-name-override": "peer1.kpu.zillabc.io"
+        },
+        "tlsCACerts": {
+            "pem": "${PEER1PEM}"
+        }
+      },
+      "peer2.kpu.zillabc.io": {
+        "url": "grpcs://${HOSTP2}:7051",
+        "grpcOptions": {
+          "ssl-target-name-override": "peer2.kpu.zillabc.io"
+        },
+        "tlsCACerts": {
+            "pem": "${PEER2PEM}"
+        }
+      },
+      "peer3.kpu.zillabc.io": {
+        "url": "grpcs://${HOSTP3}:7051",
+        "grpcOptions": {
+          "ssl-target-name-override": "peer3.kpu.zillabc.io"
+        },
+        "tlsCACerts": {
+            "pem": "${PEER3PEM}"
+        }
+      }
+    },
+    "certificateAuthorities": {
+        "ca.kpu.zillabc.io": {
+            "url": "https://${HOSTP1}:7054",
+            "caName": "ca.kpu.zillabc.io",
+            "tlsCACerts": {
+                "pem": "${CAPEM}"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+  }

@@ -1,0 +1,9 @@
+{
+        "orderers": [
+          "orderer1.zillabc.io"
+        ],
+        "peers": [
+          "peer1.kpu.zillabc.io"
+        ]
+      },
+		"${CHANNEL_NAME}": ${ISI}
